@@ -14,7 +14,7 @@ namespace primes_api.Controllers
             this.primeNumberService = primeNumberService;
         }
 
-        [HttpGet]
+        [HttpGet("[action]")]
         public IEnumerable<int> getPrimeNumbers(int upperBound)
         {
             return this.primeNumberService.GetPrimeNumbers(upperBound);
