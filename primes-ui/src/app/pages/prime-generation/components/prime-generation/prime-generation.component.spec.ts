@@ -8,9 +8,8 @@ describe('PrimeGenerationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PrimeGenerationComponent ]
-    })
-    .compileComponents();
+      declarations: [PrimeGenerationComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
