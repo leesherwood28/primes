@@ -9,7 +9,7 @@ export class PrimeNumberService {
   constructor(private httpClient: HttpClient) {}
 
   getPrimeNumbers(upperBound: number): Observable<number[]> {
-    return this.httpClient.get<number[]>('/PrimeNumber/1', {
+    return this.httpClient.get<number[]>('/api/PrimeNumber/1', {
       params: { upperBound },
     });
   }

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace primes_api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class PrimeNumberController : ControllerBase
     {
         private readonly IPrimeNumberService primeNumberService;
