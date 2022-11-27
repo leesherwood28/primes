@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using primes_api;
 
 namespace primes_api.tests
 {
@@ -12,7 +13,7 @@ namespace primes_api.tests
         [Test]
         public void Test1()
         {
-            Assert.Pass();
+            Assert.Fail();
         }
     }
 }
