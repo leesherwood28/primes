@@ -22,7 +22,7 @@
     <mat-spinner [diameter]="32"> </mat-spinner>
   </div>
 
-  <div class="prime-output">
+  <div *ngIf="viewState.primes" class="prime-output">
     <ng-container *ngFor="let prime of viewState.primes; let last = last">
       {{ prime }}
       <ng-container *ngIf="!last">,</ng-container>

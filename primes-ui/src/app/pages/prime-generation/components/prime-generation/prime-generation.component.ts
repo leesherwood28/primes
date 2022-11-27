@@ -9,6 +9,7 @@ import {
   of,
   startWith,
   switchMap,
+  timer,
 } from 'rxjs';
 import { PrimeNumberService } from 'src/app/core/prime-number/prime-number.service';
 import { Validators } from '@angular/forms';
@@ -43,7 +44,6 @@ export class PrimeGenerationComponent implements OnInit {
         upperBound: value,
         valid: this.upperBoundControl.valid,
       })),
-      debounceTime(300),
       switchMap(({ upperBound, valid }) => {
         if (!valid) {
           return of({ valid });
