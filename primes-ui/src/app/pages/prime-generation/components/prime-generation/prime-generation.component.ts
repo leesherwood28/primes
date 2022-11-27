@@ -1,6 +1,15 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { combineLatest, map, Observable, of, startWith, switchMap } from 'rxjs';
+import {
+  combineLatest,
+  debounce,
+  debounceTime,
+  map,
+  Observable,
+  of,
+  startWith,
+  switchMap,
+} from 'rxjs';
 import { PrimeNumberService } from 'src/app/core/prime-number/prime-number.service';
 import { Validators } from '@angular/forms';
 
@@ -34,6 +43,7 @@ export class PrimeGenerationComponent implements OnInit {
         upperBound: value,
         valid: this.upperBoundControl.valid,
       })),
+      debounceTime(300),
       switchMap(({ upperBound, valid }) => {
         if (!valid) {
           return of({ valid });

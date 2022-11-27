@@ -2,8 +2,30 @@
   <h1>Prime Generation</h1>
   <mat-form-field>
     <mat-label>Upper Bound</mat-label>
-    <input [formControl]="upperBoundControl" matInput />
+    <input type="number" [formControl]="upperBoundControl" matInput />
+    <mat-error *ngIf="upperBoundControl.errors?.['required']">
+      Upper bound is required
+    </mat-error>
+    <mat-error *ngIf="upperBoundControl.errors?.['min']">
+      Upper bound must not be less than
+      {{upperBoundControl.errors?.['min'].min}}
+    </mat-error>
+
+    <mat-error *ngIf="upperBoundControl.errors?.['min']">
+      Upper bound must not be more than
+      {{upperBoundControl.errors?.['max'].max}}
+    </mat-error>
   </mat-form-field>
-  <mat-list> </mat-list>
   <h2>Primes</h2>
+
+  <div *ngIf="!viewState.primes && viewState.valid" class="loading-spinner">
+    <mat-spinner [diameter]="32"> </mat-spinner>
+  </div>
+
+  <div class="prime-output">
+    <ng-container *ngFor="let prime of viewState.primes; let last = last">
+      {{ prime }}
+      <ng-container *ngIf="!last">,</ng-container>
+    </ng-container>
+  </div>
 </ng-container>
