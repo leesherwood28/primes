@@ -6,10 +6,11 @@ namespace primes_api
 {
     public class PrimeNumberService : IPrimeNumberService
     {
-        public List<int> GetPrimeNumbers(int maxNumber)
+        public List<int> GetPrimeNumbers(int upperBound)
         {
             var primes = new List<int>();
-            for (int i = 2; i <= maxNumber; i++)
+
+            for (int i = 2; i <= upperBound; i++)
             {
                 if (NumberIsPrime(i, primes))
                 {

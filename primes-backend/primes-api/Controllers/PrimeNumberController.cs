@@ -15,9 +15,9 @@ namespace primes_api.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<int> getPrimeNumbers(int maxNumber)
+        public IEnumerable<int> getPrimeNumbers(int upperBound)
         {
-            return this.primeNumberService.GetPrimeNumbers(maxNumber);
+            return this.primeNumberService.GetPrimeNumbers(upperBound);
         }
     }
 }
